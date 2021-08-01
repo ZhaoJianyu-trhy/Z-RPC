@@ -1,10 +1,10 @@
 package server;
 
 import com.zjy.api.HelloService;
-import com.zjy.api.RegistryService;
+import com.zjy.registry.RegistryService;
 import com.zjy.api.impl.HelloServiceImpl;
-import com.zjy.api.impl.RegistryServiceImpl;
-import com.zjy.server.RpcServer;
+import com.zjy.registry.RegistryServiceImpl;
+import com.zjy.server.socket.SocketServer;
 
 /**
  * @author: ZhaoJianyu03
@@ -16,7 +16,7 @@ public class TestServer {
         HelloService helloService = new HelloServiceImpl();
         RegistryService registryService = new RegistryServiceImpl();
         registryService.register(helloService);
-        RpcServer server = new RpcServer(registryService);
+        SocketServer server = new SocketServer(registryService);
         server.start(9000);
     }
 }

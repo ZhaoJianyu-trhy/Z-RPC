@@ -1,8 +1,6 @@
-package com.zjy.api.impl;
+package com.zjy.registry;
 
 import com.google.common.collect.Maps;
-import com.google.common.collect.Sets;
-import com.zjy.api.RegistryService;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.Arrays;
@@ -18,8 +16,8 @@ import java.util.concurrent.ConcurrentHashMap;
 @Slf4j
 public class RegistryServiceImpl implements RegistryService {
 
-    private final Map<String, Object> registryMap = Maps.newConcurrentMap();
-    private final Set<String> registeredService = ConcurrentHashMap.newKeySet();
+    private static final Map<String, Object> registryMap = Maps.newConcurrentMap();
+    private static final Set<String> registeredService = ConcurrentHashMap.newKeySet();
 
     @Override
     public <T> void register(T service) {

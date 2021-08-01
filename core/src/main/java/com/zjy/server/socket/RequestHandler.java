@@ -1,9 +1,10 @@
-package com.zjy.server;
+package com.zjy.server.socket;
 
-import com.zjy.api.RegistryService;
+import com.zjy.registry.RegistryService;
 import com.zjy.domain.RpcRequest;
 import com.zjy.domain.RpcResponse;
 import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.IOException;
@@ -20,6 +21,7 @@ import java.net.Socket;
  */
 @Slf4j
 @AllArgsConstructor
+@NoArgsConstructor
 public class RequestHandler implements Runnable {
 
     private Socket socket;
@@ -40,7 +42,7 @@ public class RequestHandler implements Runnable {
         }
     }
 
-    private RpcResponse handle(RpcRequest request, Object service) {
+    public RpcResponse handle(RpcRequest request, Object service) {
         String methodName = request.getMethodName();
         Class<?>[] paramTypes = request.getParamTypes();
         Object[] parameters = request.getParameters();

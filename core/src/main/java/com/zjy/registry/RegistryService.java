@@ -1,4 +1,4 @@
-package com.zjy.api;
+package com.zjy.registry;
 
 /**
  * @author: ZhaoJianyu03
